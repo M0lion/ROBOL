@@ -1,0 +1,8 @@
+to build on linux run "make" in this directory. To then run the program run "./ROBOL"
+
+I have chosen C++ because I like it, am comfortable with it and don't get to use it enough.
+
+I have built a set of classes mimicing the grammar for ROBOL, where each class has an Interpret method responsible for interpreting that bit. In addition to what's in the grammar, the class for Program also has a pointer to an instance of Environment wich holds the position of the robot and a list of variables. This environment pointer is passed from the program to all of the other classes from the grammar so they can acces and modify the variables and the position.
+
+In cases like "<stmt> ::= <while>" where there's one non-terminal at each side the class for right-hand side is a subclass of the left-hand side. 
+Otherwise("<stmt> ::= <move> <exp>"), when there is more than one non-terminal on the right-hand side, the class for the left-hand side has a constructor accepting instances of the classes for each of the righ-hand side terminals as arguments.
